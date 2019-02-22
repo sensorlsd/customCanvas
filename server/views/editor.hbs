@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{file}}</title>
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+
+<body>
+    <!-- Modal -->
+    {{> header}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Scan qr code on mobile device</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="qrcode" style="width:300px; height:300px; margin-top:15px;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+
+
+        <form class="form-inline">
+           
+
+
+            <button id="save" type="button" class="btn btn-primary btn-sm ml-2">Save</button>
+            <button id="qrButton" type="button" class="btn btn-primary btn-sm ml-2" data-toggle="modal" data-target="#exampleModal">
+                QR Code
+            </button>
+
+
+
+            <button id="runButton" type="button" class="btn btn-primary btn-sm ml-2">Run</button>
+
+
+            <button id="runNewTabButton" type="button" class="btn btn-primary btn-sm ml-2">Run new tab</button>
+        </form>
+
+
+
+
+        <form class="form-inline w-50">
+
+            <input id="adressBar" class="form-control form-control-sm ml-2 w-75" type="url">
+            <button id="loadButton" type="button" class="btn btn-primary btn-sm ml-2">Load</button>
+        </form>
+
+
+
+
+        </div>
+
+    </nav>
+    <script src="/js/ace/ace.js"></script>
+    <script src="/js/ace/ext-language_tools.js"></script>
+    <script src="/js/editor.js" type="module"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/qrcode.min.js"></script>
+    <div id="main">{{text}}</div>
+    <div class="game" id='game'>
+
+    </div>
+    <script>
+        function getSaveUrl() {
+            return "/filemanager/raw/{{file}}";
+        }
+
+        function getFileName() {
+            return "{{file}}";
+        }
+
+        function getServerUrl() {
+            return "{{url}}"
+        }
+
+    </script>
+</body>
+
+</html>

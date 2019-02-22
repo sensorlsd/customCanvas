@@ -1,0 +1,47 @@
+{
+  "name": "@skywind-group/sw-autotestclientframework",
+  "version": "0.0.27",
+  "description": "SkyWind Auto-test Client Framework",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "fix": "tslint -t codeFrame --fix 'src/**/*.ts' 'test/**/*.ts'",
+    "test": "exit 0",
+    "build": "gulp"
+  },
+  "author": "SkyWind Group",
+  "license": "UNLICENSED",
+  "main": "dist/autotest.js",
+  "devDependencies": {
+    "@types/cucumber": "^4.0.4",
+    "@types/html2canvas": "0.0.33",
+    "awesome-typescript-loader": "3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
+    "gulp-create-tsindex": "^1.0.5",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-typescript": "^3.2.3",
+    "mkdirp": "^0.5.1",
+    "null-loader": "^0.1.1",
+    "path": "^0.12.7",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.2",
+    "run-sequence": "^2.2.0",
+    "source-map-loader": "^0.2.3",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "typescript": "2.6.2",
+    "webpack": "2.7.0",
+    "webpack-stream": "^3.2.0",
+    "yargs": "^10.1.1"
+  },
+  "dependencies": {
+    "cucumber": "^5.0.2",
+    "event-emitter": "^0.3.5",
+    "eventemitter3": "^3.1.0",
+    "html2canvas": "^1.0.0-alpha.12",
+    "tslib": "^1.8.0"
+  }
+}

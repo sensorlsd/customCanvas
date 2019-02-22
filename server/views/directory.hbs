@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{{directory.name}}: {{directory.path}}</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+
+<body>
+
+    {{> header}}
+
+
+ <nav class="navbar navbar-dark bg-dark justify-content-between">
+<button id="new-file" class="btn btn-primary btn-sm ml-2">New File</button>
+ </nav>
+    
+
+
+    <div class="list-group list-group-flush">
+
+        {{#each directory.children}}
+        <a href="/filemanager/text/{{this}}" class="list-group-item list-group-item-action">{{this}}</a>
+        {{/each}}
+
+    </div>
+
+    <script>
+        document.getElementById('new-file').onclick = function () {
+            var filename = prompt('New file:', 'myfile.feature');
+            if (filename) {
+                var r = new XMLHttpRequest();
+                r.open('PUT', '{{directory.backUrl}}' + '/raw/' + encodeURIComponent(filename)
+                )
+                    ;
+                r.onreadystatechange = function () {
+                    if (r.readyState !== 4) return;
+                    if (r.status < 200 || r.status >= 300) {
+                        return alert(r.statusText);
+                    }
+                    location.reload();
+                };
+                r.send('');
+            }
+        };
+    </script>
+
+
+
+</body>
+
+</html>

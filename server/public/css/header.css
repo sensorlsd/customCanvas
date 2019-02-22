@@ -1,0 +1,25 @@
+.header-tb {
+    background-color: black;
+    height: 20px;
+    color: white;
+    padding: 2px;
+    font-size: 11px;
+    text-align: right;
+  }
+  
+  .header-tb ul, li {
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  a {
+    color: #78d5ef;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+  }
+  
+  a:hover {
+    color: #34c0e7;
+    text-decoration: underline;
+  }
